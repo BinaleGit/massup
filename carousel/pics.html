@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favorite Pics</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        a img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        a img:hover {
+            transform: scale(1.1);
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        .goback-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .goback-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+    <script>
+        function goBack() {
+            window.location.href = "index.html";
+        }
+    </script>
+</head>
+<body>
+    <h1>Here Are Some Pics I Like!</h1>
+    <a href="/pics/adi_02.png"><img src="/pics/adi_02.png" alt="Pic 1"></a>
+    <a href="/pics/adi_03.png"><img src="/pics/adi_03.png" alt="Pic 2"></a>
+    
+    <a href="#" class="goback-btn" onclick="goBack()">Go Back!</a>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body id="body">
+    <script>
+        function change_Yellow() {
+            document.getElementById("yellow").style.backgroundColor = '#FFFF00'
+            document.getElementById("body").style.backgroundColor = '#4682B4'
+
+        }
+        function change_Blue() {
+            document.getElementById("blue").style.backgroundColor = '#4682B4'
+            document.getElementById("body").style.backgroundColor = '#FFFF00'
+
+        }
+        function change_Red() {
+            document.getElementById("red").style.backgroundColor = '#FF0000'
+            document.getElementById("body").style.backgroundColor = '#4682B4'
+
+        }
+
+    </script>
+
+    <button onclick="change_Red()" id="red">Red</button>
+    <button onclick="change_Blue()" id="blue">Blue</button>
+    <button onclick="change_Yellow()" id="yellow">Yellow</button>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div  id="hello">
+        <h1>Hello</h1>
+    </div>
+    <div id="my">
+        <h2>My Friend!</h2>
+    </div>
+
+    <script>
+        function change_Color(){
+            let ranColor =Math.random()*255 
+            // document.getElementById("hello").style.backgroundColor =` Math.random *255`
+            //  document.getElementById("my").style.backgroundColor = `Math.random() *255`
+            hello.style.color = `rgb(${ranColor*3}, ${ranColor*5}, ${ranColor*2})`
+            my.style.color = `rgb(${ranColor*2}, ${ranColor*2}, ${ranColor*2})`
+        }
+        setInterval(change_Color,200)
+
+    </script>
+</body>
+</html>

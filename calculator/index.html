@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="stylesheet" href="x.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #display {
+            text-align: right;
+        }
+        
+        
+    </style>
+</head>
+
+<body onload="setDefaultInput()">`
+    <input type="text" id="display" placeholder="0"> <br>
+    <button  onclick="add('7')">7</button>
+    <button  onclick="add('8')">8</button>
+    <button onclick="add('9')">9</button>
+    <button onclick="add('+')">+</button><br>
+    <button class="num" onclick="add('4')">4</button>
+    <button class="num" onclick="add('5')">5</button>
+    <button class="num" onclick="add('6')">6</button>
+    <button onclick="add('-')">-</button><br>
+    <button class="num" onclick="add('1')">1</button>
+    <button class="num" onclick="add('2')">2</button>
+    <button class="num" onclick="add('3')">3</button>
+    <button onclick="add('*')">X</button><br>
+    <button class="num" onclick="add('0')">0</button>
+    <button onclick="calculate()">=</button>
+    <button onclick="setValueToZero()">CL</button>
+    <button onclick="add('/')">/</button> <br>
+    <button onclick="addToMemory()">M+</button>
+    <button onclick="subtractFromMemory()">M-</button>
+    <button onclick="recallMemory()">MRC</button>
+    <button onclick="clearMemory()">MC</button> <br>
+    <button onclick="add('**')">π</button>
+    <button onclick="handleSquareRoot()">√</button>
+
+    <script>
+        function add(value) {
+            if (document.getElementById('display').value.length < 10) {
+                display.value = display.value + value
+            }
+        }
+        function calculate() {
+            // Get the input value
+            var inputValue = document.getElementById('display').value;
+            // Evaluate the expression
+            var result = eval(inputValue);
+            // Display the result
+
+            document.getElementById('display').value = result;
+
+        }
+        function setValueToZero() {
+            document.getElementById('display').value = '';
+        }
+        function setDefaultInput() {
+            document.getElementById('display').value = '';
+        }
+
+        let memory = 0;
+
+function addToMemory() {
+    memory += parseFloat(document.getElementById('display').innerText);
+}
+
+function subtractFromMemory() {
+    memory -= parseFloat(document.getElementById('display').innerText);
+}
+
+function recallMemory() {
+    document.getElementById('display').innerText = memory;
+}
+
+function clearMemory() {
+    memory = 0;
+}
+function handleSquareRoot() {
+            document,getElementById('display').value = Math.sqrt('diplay');
+            calculateResult();
+        }
+
+    </script>
+</body>
+</html>
