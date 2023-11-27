@@ -36,10 +36,9 @@
       }
 
       document.getElementById('watch').innerHTML = coloredTimeString;
-      setTimeout(updateWatch, 1000);
     }
 
-    updateWatch();
+    setInterval(updateWatch, 1000)
   </script>
 </body>
 
