@@ -8,8 +8,141 @@
 </head>
 
 <body>
+
+    <script>
+
+function zuginot() {
+    let ar = [2, 3, 4, 5, 6, 7]
+    let min = 0, max = 0, avg = 0
+
+    for (let index = 0; index < ar.length; index++) {
+        if (ar[index] % 2 == 0) {
+            console.log(ar[index]);
+            avg += ar[index]
+        }
+        // if ( ar[index]%2!=0) {
+        //     console.log(ar[index]);
+        // }
+        //    אי זוגי
+
+    }
+}
+
+function sarch(arr, num) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] == num) {
+            return true
+        }
+        else
+            return false
+    }
+}
+function sum(arr) {
+    let sum = 0
+    for (let i = 0; i < arr.length; i++) {
+
+        sum += arr[i];
+    }
+    return sum
+}
+function arrBack(arr) {
+    for (let i = arr.length - 1; i >= 0; i--) {
+        console.log(arr[i]);
+
+    }
+}
+function onlyZugi(arr){
+    let l= []
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i]%2==0) {
+             l.push(arr[i])
+            
+        }
+        
+    }
+    return l
+}
+function biggerThenNum(arr,num){
+    let l = []
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i]>num) {
+            l.push(arr[i])
+            
+        }
+        
+    }
+return l
+
+}
+function printLowest(arr){
+    let min = arr[0]
+    for (let i = 0; i < arr.length; i++) {
+        if(min > arr[i])
+        min=arr[i]
+        
+    }
+    console.log(min);
+}
+function printlast(arr){
+    let last = 0
+    for (let i = 0; i < arr.length; i++) {
+        last=arr[i]
+        
+        
+    }
+    console.log(last);
+}
+function ranList(){
+    arry =[]
+    for (let i = 0; i < 10; i++) {
+        arry.push(Math.floor(Math.random() *255));
+        
+        
+    }
+    return arry
+}
+function addRanNum(arry) {
+    arry.push(Math.floor(Math.random() *255));
     
-    
+}
+function generateRandomNumbers() {
+  const quantity = 7;
+  const rangeStart = 7;
+  const rangeEnd = 36;
+
+  if (quantity > rangeEnd - rangeStart + 1) {
+    console.error("Error: Quantity of numbers must be less than or equal to the range.");
+    return [];
+  }
+
+  const randomNumbers = [];
+
+  while (randomNumbers.length < quantity) {
+    const randomNum = Math.floor(Math.random() * (rangeEnd - rangeStart + 1)) + rangeStart;
+
+    if (!randomNumbers.includes(randomNum)) {
+      randomNumbers.push(randomNum);
+    }
+  }
+
+  return randomNumbers;
+}
+
+const resultNumbers = generateRandomNumbers();
+console.log("Random Numbers:", resultNumbers);
+
+let arr = [5, 2, 3, 10]
+// console.log(sarch(arr, 2));
+// console.log(sum(arr));
+// back(arr)
+// console.log(onlyZugi(arr));
+// console.log(biggerThenNum(arr,2));
+// printLowest(arr)
+// printlast(arr)
+// console.log(ranList());
+    </script>
+    <button onclick="addRanNum">random!</button>
+
 </body>
 
 </html>
