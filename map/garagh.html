@@ -13,7 +13,8 @@
             color: #333;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             text-align: center;
             color: #2c3e50;
         }
@@ -46,13 +47,15 @@
             padding: 12px;
             border: none;
             cursor: pointer;
-            width: 60%; /* Set a maximum width for the button */
+            width: 60%;
+            /* Set a maximum width for the button */
             box-sizing: border-box;
             font-size: 16px;
             border-radius: 4px;
             transition: background-color 0.3s;
             display: block;
-            margin: 0 auto; /* Center the button */
+            margin: 0 auto;
+            /* Center the button */
         }
 
         button:hover {
@@ -112,7 +115,7 @@
 
     <script>
         let cars = [];
-    
+
         function addCar() {
             cars.push({
                 "Color": clr.value,
@@ -122,17 +125,17 @@
             });
             refresh();
         }
-    
+
         function deleteLastCar() {
             cars.pop();
             refresh();
         }
-    
+
         function deleteAllCars() {
             cars = [];
             refresh();
         }
-    
+
         function refresh() {
             counter.innerHTML = cars.length;
             display.innerHTML = cars.map(car => `<div>
@@ -149,7 +152,7 @@
             window.location.href = 'index.html';
         }
     </script>
-    
+
 </body>
 
 </html>
