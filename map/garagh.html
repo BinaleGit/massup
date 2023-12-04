@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Garage</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+            transition: border-color 0.3s;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        button {
+            background-color: #2ecc71;
+            color: white;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            width: 60%; /* Set a maximum width for the button */
+            box-sizing: border-box;
+            font-size: 16px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 0 auto; /* Center the button */
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+
+        #display div {
+            border: 1px solid #ccc;
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #fff;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        img {
+            display: block;
+            margin: 15px auto;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .buy-button {
+            background-color: #3498db;
+            color: white;
+            padding: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .buy-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>My Garage</h1>
+    <label for="brand">Brand:</label>
+    <input id="brand" placeholder="Enter brand">
+    <label for="model">Model:</label>
+    <input id="model" placeholder="Enter model">
+    <label for="clr">Color:</label>
+    <input id="clr" placeholder="Enter color">
+    <label for="WH">What Happened:</label>
+    <input id="WH" placeholder="Enter details">
+    <button onclick="addCar()">Add Car</button>
+
+    <h2>Cars List</h2>
+    <p>Total Cars: <span id="counter">0</span></p>
+    <div id="display"></div>
+    <button onclick="deleteLastCar()">Delete the Last Car</button>
+    <button onclick="deleteAllCars()">Delete All Cars</button>
+
+    <script>
+        let cars = [];
+    
+        function addCar() {
+            cars.push({
+                "Color": clr.value,
+                "Model": model.value,
+                "Brand": brand.value,
+                "What_Happened": WH.value
+            });
+            refresh();
+        }
+    
+        function deleteLastCar() {
+            cars.pop();
+            refresh();
+        }
+    
+        function deleteAllCars() {
+            cars = [];
+            refresh();
+        }
+    
+        function refresh() {
+            counter.innerHTML = cars.length;
+            display.innerHTML = cars.map(car => `<div>
+                <strong>Color:</strong> ${car.Color}, 
+                <strong>Model:</strong> ${car.Model}, 
+                <strong>Brand:</strong> ${car.Brand}, 
+                <strong>What Happened:</strong> ${car.What_Happened},
+                <button class="buy-button" onclick="buyCar()">Buy</button>
+                </div>`).join("");
+        }
+        function buyCar() {
+            // Implement any logic for buying a car (e.g., sending data to a server)
+            // For demonstration purposes, redirect to a buy page
+            window.location.href = 'index.html';
+        }
+    </script>
+    
+</body>
+
+</html>
