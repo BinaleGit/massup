@@ -29,7 +29,10 @@ def menu_actions(user_selection):
             "Color": input("Now the Color: ")
         })
     elif user_selection == 'P':
-        print(cars)
+        if not cars:
+            print("No Cars In The Garage")
+        elif cars:
+            print(cars)
     elif user_selection == 'D':
         cars.clear()
     elif user_selection == 'DL':
@@ -37,6 +40,7 @@ def menu_actions(user_selection):
             cars.pop()
 
 def main():
+    os.system('cls' if os.name == 'nt' else 'clear') #clear terminal
     load_data()
     while True:
         print_menu()
