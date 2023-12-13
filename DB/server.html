@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <button onclick="create()">Create</button>
+    <button onclick="read()">Read</button>
+    <button onclick="upd()">Upd</button>
+    <button onclick="del()">del</button><br>
+    Name:<input id="username">
+    Number:<input id="Number1">
+    
+    <h1>Total cars <div id="Total"></div>
+    </h1>
+    <div id="display"></div>
+    <script>
+        const MY_SERVER = "http://localhost:4000/posts"
+        let Contacts = []
+        async function read() {
+            Contacts = await axios.get(MY_SERVER)
+           Contacts = Contacts.data
+            updDisplay()
+        }
+
+        function create() {
+            console.log("Hi");
+            axios.post(MY_SERVER,
+            {
+               username: username.value,
+               Number: Number1.value 
+            }
+            )
+        }
+
+        function upd(ind) {
+            fetch(MY_SERVER + "/" + (ind + 1), {
+                method: 'PUT',
+                body: JSON.stringify({
+                    Color: Color.value,
+                    Number: Number1.value,
+                 
+                }),
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            })
+                .then((response) => response.json())
+                .then((json) => console.log(json));
+                updDisplay()
+        }
+
+         async function del(ind) {
+            await axios,delete(MY_SERVER+"/"+ind)
+            updDisplay()
+           
+        }
+        function updDisplay() {
+            display.innerHTML = Contacts.map((Contacts, ind) => `<div>
+                Name:${Contacts.username},
+                Number:${Contacts.Number}
+                 <button onclick=del(${ind})>Del</button>
+                 <button onclick=upd(${ind})>Upd</button>
+                </div>`).join("")
+            Total.innerHTML = Contacts.length
+        }
+    </script>
+</body>
+
+</html>

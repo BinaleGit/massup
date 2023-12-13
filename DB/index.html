@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Color:<input id="Color" value="Red">
+    Model:<input id="Model" value="2022">
+    Brand:<input id="Brand" value="Volvo">
+    <button onclick="addToContact()">Add</button>
+    <hr>
+    <h1>My Cars</h1>
+    <h1>Total cars <div id="Total"></div></h1>
+    <div id="display"></div>
+    
+    <script>
+        let Contacts=[]
+
+        function addToContact(){
+            Contacts.push({"Color":Color.value,"Model":Model.value,"Brand":Brand.value})
+            updDisplay()
+        }
+        function delACar(ind){
+            Contacts.splice(ind,1)
+            updDisplay()
+        }
+
+        function updACar(ind){
+            Contacts[ind].Model =Model.value
+            Contacts[ind].Color =Color.value
+            Contacts[ind].Brand =Brand.value
+            updDisplay()
+        }
+
+        function updDisplay(){
+            display.innerHTML =Contacts.map((car,ind) => `<div>
+                Model:${car.Model},
+                Brand:${car.Brand},
+                 Color:${car.Color}
+                 <button onclick=delACar(${ind})>Del</button>
+                 <button onclick=updACar(${ind})>Upd</button>
+                </div>`).join("")
+                Total.innerHTML =Contacts.length
+        }
+
+    </script>
+</body>
+</html>
