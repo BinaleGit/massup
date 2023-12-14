@@ -3,11 +3,16 @@ import os
 
 MY_DATA = 'cars.txt'
 cars = []
+x=True
 
 def load_data():
     global cars
-    with open(MY_DATA, 'r') as filehandle:
-        cars = json.load(filehandle)
+    try:
+        with open(MY_DATA, 'r') as filehandle:
+            cars = json.load(filehandle)
+    except FileNotFoundError:
+        # Handle the case where the file does not exist
+        pass
 
 def save_to_file():
     with open(MY_DATA, 'w') as filehandle:
@@ -19,35 +24,56 @@ def print_menu():
     print("P - Print All the Cars in the Garage")
     print("D - Delete All the Cars in the Garage")
     print("DL - Delete the Least Car")
+    print("X - Exit")
     # print("D1 - Delete Specific Car You Chose")   # Didn't make it yet :(
 
 def menu_actions(user_selection):
+    global x
     if user_selection == 'A':
-        cars.append({
-            "Car_Module": input("Hi, Welcome to Bina's Garage. Please enter your car module: "),
-            "T_Module": input("Great! Now the T Module: "),
-            "Color": input("Now the Color: ")
-        })
+        add_car()
     elif user_selection == 'P':
-        if not cars:
-            print("No Cars In The Garage")
-        elif cars:
-            print(cars)
+        print_cars()
     elif user_selection == 'D':
-        cars.clear()
+        delete_all_cars()
     elif user_selection == 'DL':
-        if cars:
-            cars.pop()
+        delete_least_car()
+    elif user_selection == 'X':
+        os.system('cls' if os.name == 'nt' else 'clear')  # clear terminal
+        save_to_file()
+        x=False
+        print("Bye Bye!")
+        # exit()  # Optionally, you can add an exit here if you want to terminate the program when 'X' is selected.
+
+def add_car():
+    cars.append({
+        "Car_Module": input("Hi, Welcome to Bina's Garage. Please enter your car module: "),
+        "T_Module": input("Great! Now the T Module: "),
+        "Color": input("Now the Color: ")
+    })
+
+def print_cars():
+    if not cars:
+        print("No Cars In The Garage")
+    else:
+        print(cars)
+
+def delete_all_cars():
+    cars.clear()
+
+def delete_least_car():
+    if cars:
+        cars.pop()
 
 def main():
-    os.system('cls' if os.name == 'nt' else 'clear') #clear terminal
+    global x
+    os.system('cls' if os.name == 'nt' else 'clear')  # clear terminal
     load_data()
-    while True:
-        print_menu()
-        user_selection = input("Type the key for your choice: ")
-        os.system('cls' if os.name == 'nt' else 'clear') #clear terminal
-        menu_actions(user_selection)
-        save_to_file()
-
-main()
     
+    while  x==True:
+        print_menu()
+        user_selection = input("Type the key for your choice: ").upper()
+        os.system('cls' if os.name == 'nt' else 'clear')  # clear terminal
+        menu_actions(user_selection)
+
+if __name__ == "__main__":
+    main()
