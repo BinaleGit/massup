@@ -42,7 +42,6 @@ def menu_actions(user_selection):
         save_to_file()
         x=False
         print("Bye Bye!")
-        # exit()  # Optionally, you can add an exit here if you want to terminate the program when 'X' is selected.
 
 def add_car():
     cars.append({
